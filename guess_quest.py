@@ -30,7 +30,12 @@ class GameManager:
         self.max_turns = max_turns
         self.turns_taken = 0
         self.word_bank = ["queen", "helps", "learn", "flash", "blaze"]
-        self.game = WordGame(self.word_bank)
+        try:
+            self.game = WordGame(self.word_bank)
+        except Exception as e:
+            print(f"Error starting game: {e}")
+            exit()
+
 
     def display_intro(self):
         print("\nWelcome to Guess Quest!")
@@ -38,22 +43,27 @@ class GameManager:
         print(f"You have {self.max_turns} turns to guess the word.\n")
 
     def play_turn(self):
-        guess = input("Guess the word: ").lower()
+        try:
+           guess = input("Guess the word: ").lower()
 
-        if len(guess) != len(self.game.word_to_guess):
+           if len(guess) != len(self.game.word_to_guess):
             print(f"Error: Too long! Please enter a {len(self.game.word_to_guess)}-letter word")
             return False
 
-        self.turns_taken += 1
+           self.turns_taken += 1
 
-        if guess == self.game.word_to_guess:
+           if guess == self.game.word_to_guess:
             print("Congratulations, you win!")
             return True
 
-        result = self.game.check_guess(guess)
-        print(f"Result: {result}")
-        self.game.current_state_display()
-        return False
+           result = self.game.check_guess(guess)
+           print(f"Result: {result}")
+           self.game.current_state_display()
+           return False
+
+        except Exception as e:
+            print(f"Error during game: {e}")
+            return True
 
     def play(self):
         self.display_intro()
