@@ -11,7 +11,7 @@ This game allows players to guess a randomly selected word within a limited numb
 ## Installation
 1. Ensure Python 3.12 is installed on your system
 2. Clone the repository: https://github.com/AmberDaniyal/word_game.git
-3. Navigate to the project directory: cd guess_quest
+3. Navigate to the project directory: cd Redi_Final
 
 ## Usage
 Run the game using Python: guess_quest.py
