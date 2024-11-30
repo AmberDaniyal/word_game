@@ -47,7 +47,7 @@ class GameManager:
            guess = input("Guess the word: ").lower()
 
            if len(guess) != len(self.game.word_to_guess):
-            print(f"Error: Too long! Please enter a {len(self.game.word_to_guess)}-letter word")
+            print(f"Error: Please enter a {len(self.game.word_to_guess)}-letter word")
             return False
 
            self.turns_taken += 1
